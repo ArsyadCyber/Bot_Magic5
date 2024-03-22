@@ -7,11 +7,11 @@ const { botToken } = require('./config')
 const scrapeJadwalIndosiar = require('./scrape')
 const bot = new TelegramBot(botToken, { polling: true });
 
-// Memuat semua command handler dari folder 'commands'
 const commandsPath = path.join(__dirname, 'commands');
 fs.readdirSync(commandsPath).forEach((file) => {
   require(`./commands/${file}`)(bot);
 });
+// Memuat semua command handler dari folder 'commands'
 
 cron.schedule('0 1 * * *', () => {
   console.log('Scraping Indosiar Sedang Dijalankan...');
