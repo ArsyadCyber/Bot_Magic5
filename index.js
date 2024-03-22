@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 const bot = new TelegramBot(botToken, { polling: false });
 
 // Tentukan URL untuk webhook Anda, ganti 'https://your-webhook-url.com' dengan URL yang diberikan oleh Cyclic.sh
-const webhookUrl = 'https://bb342701-9040-41b5-bde0-f948d4bb808a-00-2kjom1rr02ozu.janeway.replit.dev/';
+const webhookUrl = process.env.WEBHOOK;
 
 // Set webhook pada bot dengan URL yang telah ditentukan
 bot.setWebHook(`${webhookUrl}/bot${botToken}`);
